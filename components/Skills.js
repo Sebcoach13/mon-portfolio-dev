@@ -39,13 +39,13 @@ export default function Skills() {
           Un développeur Full-Stack avec un focus sur les solutions modernes et performantes.
         </p>
 
-        {/* Grille des Compétences : items-stretch ajouté */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+        {/* Grille des Compétences : ITEMS-STRETCH RETIRÉ */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {skillsData.map((skill, index) => (
             <div 
               key={index} 
-              // h-full et bg-white ajoutés pour l'alignement et le contraste
-              className="p-6 rounded-lg shadow-xl hover:shadow-2xl transition duration-300 transform hover:scale-[1.02] border-t-4 border-primary-600 h-full bg-white"
+              // 🛑 MODIFICATION : Hauteur fixe et gestion du débordement
+              className="p-6 rounded-lg shadow-xl hover:shadow-2xl transition duration-300 transform hover:scale-[1.02] border-t-4 border-primary-600 bg-white h-[450px] overflow-y-auto"
             >
               <skill.icon className={`w-12 h-12 mx-auto mb-4 ${skill.color}`} />
               <h3 className="text-2xl font-bold text-gray-900 mb-3">{skill.title}</h3>

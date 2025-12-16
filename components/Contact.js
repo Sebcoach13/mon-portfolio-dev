@@ -1,103 +1,141 @@
-// components/Contact.js
-import React from 'react';
-
-import { EnvelopeIcon, PhoneIcon, MapPinIcon } from '@heroicons/react/24/solid';
+// components/Contact.js 
+import React from "react";
+import {
+  EnvelopeIcon,
+  PhoneIcon,
+  MapPinIcon,
+} from "@heroicons/react/24/solid";
 
 export default function Contact() {
-  const contactInfo = [
-    { icon: EnvelopeIcon, text: "seb-dac67@hotmail.fr", link: "mailto:seb-dac67@hotmail.fr" },
-    { icon: PhoneIcon, text: "+33 7 50 15 29 08", link: "tel:+33750152908" },
-    { icon: MapPinIcon, text: "Bouches-du-Rhône", link: "#" },
-  ];
+  const contactInfo = [
+    {
+      icon: EnvelopeIcon,
+      text: "seb-dac67@hotmail.fr",
+      link: "mailto:seb-dac67@hotmail.fr",
+    },
+    {
+      icon: PhoneIcon,
+      text: "+33 7 50 15 29 08",
+      link: "tel:+33750152908",
+    },
+    {
+      icon: MapPinIcon,
+      text: "Bouches-du-Rhône",
+      link: "#",
+    },
+  ];
 
-  return (
-    <section id="contact" className="py-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-extrabold text-gray-900 mb-4">
-            Contactez-Moi
-          </h2>
-          <p className="text-xl text-gray-600">
-            Intéressé par mes projets ou mon profil ? Envoyez-moi un message !
-          </p>
-        </div>
+  // HAUTEUR FIXE POUR TOUTES LES CARTES
+  const cardClasses = "rounded-lg bg-white p-6 shadow-md h-[450px] overflow-y-auto";
 
-        {/* Grille de Contact : items-stretch ajouté */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-stretch">
-          
-          {/* Panneau d'Information (s'étire) */}
-          <div className="p-6 rounded-lg shadow-xl h-full flex flex-col justify-center bg-white">
-            <h3 className="text-2xl font-bold text-gray-900 mb-6 border-b pb-3">Informations de Contact</h3>
-            
-            <div className="space-y-6">
-              {contactInfo.map((item, index) => (
-                <a key={index} href={item.link} className="flex items-center text-gray-700 hover:text-primary-600 transition duration-300">
-                  <item.icon className="w-6 h-6 mr-3 text-primary-500 flex-shrink-0" />
-                  <span className="text-lg font-medium">{item.text}</span>
-                </a>
-              ))}
-            </div>
+  return (
+    <section id="contact" className="w-full pb-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center"> 
+        
+        <div className="mb-10"> 
+          <h2 className="text-3xl font-extrabold text-gray-900 mb-3">
+            Contact
+          </h2>
+          <p className="text-gray-600">
+            Une question, un projet ou une opportunité ? Parlons-en.
+          </p>
+        </div>
 
-            <p className="mt-8 text-gray-600">
-              Je réponds généralement sous 24 heures. N'hésitez pas à joindre le lien de votre offre ou de votre projet.
-            </p>
-          </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
+          
+          {/* Carte 1 : Infos */}
+          <div className={cardClasses}>
+            <h3 className="text-xl font-bold text-gray-900 mb-6 border-b pb-3">
+              Informations
+            </h3>
 
-          {/* Formulaire (s'étire) */}
-          <div className="p-6 rounded-lg shadow-xl bg-white">
-            {/* h-full et flex flex-col ajoutés pour que le formulaire remplisse bien la hauteur de la carte */}
-            <form action="https://formspree.io/f/movgzvyg" method="POST" className="space-y-6 h-full flex flex-col justify-between">
-              
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700">Nom / Prénom</label>
-                <input
-                  type="text"
-                  name="name"
-                  id="name"
-                  required
-                  className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-primary-500 focus:ring-primary-500 p-3 border"
-                  placeholder="John"
-                />
-              </div>
+            <div className="space-y-5">
+              {contactInfo.map((item, index) => (
+                <a
+                  key={index}
+                  href={item.link}
+                  className="flex items-center gap-3 text-gray-700 hover:text-primary-600 transition"
+                >
+                  <item.icon className="w-6 h-6 text-primary-500" />
+                  <span className="font-medium">{item.text}</span>
+                </a>
+              ))}
+            </div>
 
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700">Adresse Email</label>
-                <input
-                  type="email"
-                  name="email"
-                  id="email"
-                  required
-                  className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-primary-500 focus:ring-primary-500 p-3 border"
-                  placeholder="votre.mail@pro.com"
-                />
-              </div>
+            <p className="mt-8 text-gray-600">
+              Je réponds généralement sous 24 heures. N’hésitez pas à me
+              transmettre les détails de votre projet ou de votre offre.
+            </p>
+          </div>
 
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700">Message</label>
-                <textarea
-                  name="message"
-                  id="message"
-                  rows="4"
-                  required
-                  className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-primary-500 focus:ring-primary-500 p-3 border"
-                  placeholder="Décrivez votre besoin ou votre offre..."
-                ></textarea>
-              </div>
+          {/* Carte 2 : Formulaire */}
+          <div className={cardClasses}>
+            <form
+              action="https://formspree.io/f/movgzvyg"
+              method="POST"
+              className="space-y-5"
+            >
+              <div>
+                <label
+                  htmlFor="name"
+                  className="block text-sm font-medium text-gray-700"
+                >
+                  Nom / Prénom
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  required
+                  placeholder="John Doe"
+                  className="mt-1 w-full rounded-md border border-gray-300 p-3 focus:border-primary-500 focus:ring-primary-500"
+                />
+              </div>
 
-              <div>
-                <button
-                  type="submit"
-                  className="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition duration-300"
-                >
-                  Envoyer le Message
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-        
-      </div>
-    </section>
-  );
+              <div>
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-medium text-gray-700"
+                >
+                  Adresse email
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  placeholder="votre.email@pro.com"
+                  className="mt-1 w-full rounded-md border border-gray-300 p-3 focus:border-primary-500 focus:ring-primary-500"
+                />
+              </div>
+
+              <div>
+                <label
+                  htmlFor="message"
+                  className="block text-sm font-medium text-gray-700"
+                >
+                  Message
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="3"
+                  required
+                  placeholder="Décrivez votre besoin ou votre projet…"
+                  className="mt-1 w-full rounded-md border border-gray-300 p-3 focus:border-primary-500 focus:ring-primary-500"
+                ></textarea>
+              </div>
+
+              <button
+                type="submit"
+                className="w-full rounded-md bg-primary-600 py-3 font-medium text-white hover:bg-primary-700 transition"
+              >
+                Envoyer le message
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 }
