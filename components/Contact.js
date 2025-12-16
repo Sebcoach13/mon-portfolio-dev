@@ -25,8 +25,7 @@ export default function Contact() {
     },
   ];
 
-  // HAUTEUR FIXE POUR TOUTES LES CARTES
-  const cardClasses = "rounded-lg bg-white p-6 shadow-md h-[450px] overflow-y-auto";
+  const cardClasses = "rounded-lg bg-white p-6 shadow-md h-[450px] overflow-y-auto border-t-4 border-blue-600";
 
   return (
     <section id="contact" className="w-full pb-12">
@@ -87,7 +86,7 @@ export default function Contact() {
                   id="name"
                   name="name"
                   required
-                  placeholder="John Doe"
+                  placeholder="John"
                   className="mt-1 w-full rounded-md border border-gray-300 p-3 focus:border-primary-500 focus:ring-primary-500"
                 />
               </div>
@@ -104,7 +103,7 @@ export default function Contact() {
                   id="email"
                   name="email"
                   required
-                  placeholder="votre.email@pro.com"
+                  placeholder="votre.seb-dac67@hotmail.fr"
                   className="mt-1 w-full rounded-md border border-gray-300 p-3 focus:border-primary-500 focus:ring-primary-500"
                 />
               </div>

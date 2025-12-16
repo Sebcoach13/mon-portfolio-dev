@@ -1,4 +1,4 @@
-// tailwind.config.js - VERSION STABLE AVEC VALEURS HEXADECIMALES
+// tailwind.config.js -
 
 import defaultTheme from 'tailwindcss/defaultTheme'; 
 
@@ -12,18 +12,17 @@ export default {
   theme: {
     extend: {
       colors: {
-        // CORRECTION: Utilisation des valeurs HEX en dur pour éviter les conflits PostCSS/Turbopack
         primary: { 
-          50: '#eff6ff',  // Ancien --color-primary-50
-          100: '#dbeafe', // Ancien --color-primary-100
-          200: '#bfdbfe', // Ancien --color-primary-200
-          300: '#93c5fd', // Ancien --color-primary-300
-          400: '#60a5fa', // Ancien --color-primary-400
-          500: '#3b82f6', // Ancien --color-primary-500
-          600: '#2563eb', // Ancien --color-primary-600
-          700: '#1d4ed8', // Ancien --color-primary-700
-          800: '#1e40af', // Ancien --color-primary-800
-          900: '#1e3a8a', // Ancien --color-primary-900
+          50: '#eff6ff',
+          100: '#dbeafe', 
+          200: '#bfdbfe', 
+          300: '#93c5fd', 
+          400: '#60a5fa',
+          500: '#3b82f6', 
+          600: '#2563eb', 
+          700: '#1d4ed8',
+          800: '#1e40af', 
+          900: '#1e3a8a', 
         },
       },
       fontFamily: {

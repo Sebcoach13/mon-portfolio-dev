@@ -1,10 +1,9 @@
-// components/Projects.js (CORRIGÉ)
+// components/Projects.js 
 import React from "react";
 import { CodeBracketIcon, GlobeAltIcon } from "@heroicons/react/24/solid";
 
-// Définition de tes projets (données inchangées)
+// Définition des projets 
 const projectsData = [
-  // ... (vos données de projets)
   {
     title: "Application de Gestion de Stock (Projet de Fin d'Année)",
     description:
@@ -34,7 +33,6 @@ const projectsData = [
 export default function Projects() {
   return (
     <section id="projets" className="w-full">
-      {/* 🛑 MODIFICATION ICI : Ajout des classes de limitation de largeur et de centrage */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center"> 
         
         {/* Titre (Centrage hérité du conteneur parent) */}
@@ -50,11 +48,9 @@ export default function Projects() {
           {projectsData.map((project, index) => (
             <div
               key={index}
-              // J'ai gardé la hauteur fixe h-[450px] pour l'uniformité visuelle verticale
               className="flex flex-col rounded-lg bg-white p-6 shadow-md border-t-4 border-primary-600 h-[450px] w-full overflow-y-auto"
             >
               <h3 className="text-xl font-bold text-gray-900 mb-3">{project.title}</h3>
-              {/* ... (Le reste du contenu de la carte est inchangé) ... */}
               <p className="text-gray-600 mb-4 flex-grow">{project.description}</p>
               <div className="flex flex-wrap gap-2 mb-4">
                 {project.technologies.map((tech) => (
