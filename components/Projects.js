@@ -4,7 +4,6 @@ import { CodeBracketIcon, GlobeAltIcon } from '@heroicons/react/24/solid';
 
 
 const projectsData = [
-// ... (Données conservées)
   {
     title: "Application de Gestion de Stock (Projet de Fin d'Année)",
     description: "Développement d'une application CRUD complète pour la gestion des produits, des commandes et des fournisseurs. Axé sur la sécurité et la performance des requêtes SQL.",
@@ -30,7 +29,6 @@ const projectsData = [
 
 export default function Projects() {
   return (
-    // 🛑 CORRECTION 1: Suppression de bg-white pour hériter du fond gris clair
     <section id="projets" className="py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
@@ -49,9 +47,8 @@ export default function Projects() {
           {projectsData.map((project, index) => (
             <div 
               key={index} 
-              // 🛑 CORRECTION 2: Suppression de bg-gray-50
-              // 🛑 CORRECTION 3: Changement de border-indigo-600 à border-primary-600
-              className="p-6 rounded-lg shadow-lg border-t-4 border-primary-600 flex flex-col h-full"
+              // Ajout de bg-white pour contraster avec le fond général
+              className="p-6 rounded-lg shadow-lg border-t-4 border-primary-600 flex flex-col h-full bg-white"
             >
               <h3 className="text-2xl font-bold text-gray-900 mb-3">{project.title}</h3>
               <p className="text-gray-600 mb-4 flex-grow">{project.description}</p>
@@ -61,13 +58,12 @@ export default function Projects() {
                 {project.technologies.map((tech) => (
                   <span 
                     key={tech} 
-                    // 🛑 CORRECTION 4: Changement des tags de indigo-100/800 à primary-100/800
                     className="px-3 py-1 text-xs font-medium bg-primary-100 text-primary-800 rounded-full"
                   >
                     {tech}
                   </span>
                 ))}
-              </div>
+            </div>
 
               {/* Liens (GitHub & Démo) */}
               <div className="mt-auto pt-4 border-t border-gray-200 flex space-x-4">
@@ -75,7 +71,6 @@ export default function Projects() {
                   href={project.githubLink} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  // 🛑 CORRECTION 5: Changement de indigo-600/800 à primary-600/800
                   className="inline-flex items-center text-primary-600 hover:text-primary-800 transition duration-300 font-medium"
                 >
                   <CodeBracketIcon className="w-5 h-5 mr-1" />

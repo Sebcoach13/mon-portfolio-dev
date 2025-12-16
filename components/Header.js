@@ -1,43 +1,51 @@
-// components/Header.js - 
+// components/Header.js
+import React from 'react';
+import Link from 'next/link';
 
-
-import Link from 'next/link'; 
+const navLinks = [
+  { name: 'Accueil', href: '#hero' },
+  { name: 'Compétences', href: '#skills' },
+  { name: 'Projets', href: '#projets' },
+  { name: 'Contact', href: '#contact' },
+];
 
 export default function Header() {
-  const navItems = [
-    { name: 'Accueil', href: '#accueil' }, 
-    { name: 'Compétences', href: '#skills' }, 
-    { name: 'Projets', href: '#projets' },   
-  ];
-
   return (
-    <header className="bg-gray-800 text-white shadow-md sticky top-0 z-10">
-      <nav className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-        
-        <Link href="/" className="text-2xl font-bold tracking-wider hover:text-indigo-400 transition duration-300">
-          DevCodeMaster_13
-        </Link>
-        
-        <div className="space-x-8 hidden md:flex">
-          {navItems.map((item) => (
-            <a 
-              key={item.name} 
-              href={item.href} 
-              className="text-lg font-medium hover:text-indigo-400 transition duration-300"
-            >
-              {item.name}
-            </a>
-          ))}
+    <header className="fixed top-0 left-0 w-full bg-white bg-opacity-95 shadow-md z-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-16">
+          
+          {/* Logo/Nom */}
+          <div className="flex-shrink-0">
+            <h1 className="text-xl font-extrabold text-gray-900">
+              DevCodeMaster_13
+            </h1>
+          </div>
+
+          {/* Navigation */}
+          <nav className="hidden md:flex space-x-8">
+            {navLinks.map((link) => (
+              <Link 
+                key={link.name} 
+                href={link.href}
+                className="text-gray-600 hover:text-primary-600 font-medium transition duration-300"
+              >
+                {link.name}
+              </Link>
+            ))}
+          </nav>
+          
+          {/* Bouton CV */}
+          <a 
+            href="/chemin/vers/votre/cv.pdf" 
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden md:inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-primary-600 hover:bg-primary-700 transition duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500"
+          >
+            Télécharger CV
+          </a>
         </div>
-        
-        <a 
-          href="/votre-cv.pdf" 
-          download 
-          className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-lg transition duration-300 hidden md:block"
-        >
-          Télécharger CV
-        </a>
-      </nav>
+      </div>
     </header>
   );
 }
