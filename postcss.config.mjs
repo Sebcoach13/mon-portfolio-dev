@@ -1,10 +1,10 @@
-// postcss.config.mjs - SYNTAXE ES MODULE
+// postcss.config.mjs
 
 const config = {
-  plugins: {
-    tailwindcss: {}, // Nom du plugin corrigé
-    autoprefixer: {},
-  },
+  plugins: [
+    'tailwindcss', 
+    'autoprefixer',
+  ],
 };
 
-export default config; // <-- Export par défaut
+export default config;
