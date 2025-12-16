@@ -23,8 +23,10 @@ export default function Contact() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+        {/* Grille de Contact : items-stretch ajouté */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-stretch">
           
+          {/* Panneau d'Information (s'étire) */}
           <div className="p-6 rounded-lg shadow-xl h-full flex flex-col justify-center bg-white">
             <h3 className="text-2xl font-bold text-gray-900 mb-6 border-b pb-3">Informations de Contact</h3>
             
@@ -42,8 +44,10 @@ export default function Contact() {
             </p>
           </div>
 
+          {/* Formulaire (s'étire) */}
           <div className="p-6 rounded-lg shadow-xl bg-white">
-            <form action="https://formspree.io/f/movgzvyg" method="POST" className="space-y-6">
+            {/* h-full et flex flex-col ajoutés pour que le formulaire remplisse bien la hauteur de la carte */}
+            <form action="https://formspree.io/f/movgzvyg" method="POST" className="space-y-6 h-full flex flex-col justify-between">
               
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-700">Nom / Prénom</label>
@@ -92,6 +96,7 @@ export default function Contact() {
             </form>
           </div>
         </div>
+        
       </div>
     </section>
   );

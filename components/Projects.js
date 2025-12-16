@@ -32,22 +32,14 @@ export default function Projects() {
     <section id="projets" className="py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Titre de la Section */}
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-extrabold text-gray-900 mb-4">
-            Mes Projets Récents
-          </h2>
-          <p className="text-xl text-gray-600">
-            Réalisations concrètes développées lors de ma Licence, démontrant mon savoir-faire Full-Stack.
-          </p>
-        </div>
+        {/* Titre de la Section... */}
 
-        {/* Grille des Projets */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        {/* Grille des Projets : items-stretch ajouté */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 items-stretch">
           {projectsData.map((project, index) => (
             <div 
               key={index} 
-              // Ajout de bg-white pour contraster avec le fond général
+              // h-full, flex et bg-white pour l'alignement
               className="p-6 rounded-lg shadow-lg border-t-4 border-primary-600 flex flex-col h-full bg-white"
             >
               <h3 className="text-2xl font-bold text-gray-900 mb-3">{project.title}</h3>
