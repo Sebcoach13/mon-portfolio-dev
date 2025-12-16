@@ -11,13 +11,15 @@ const navLinks = [
 
 export default function Header() {
   return (
-    <header className="fixed top-0 left-0 w-full bg-white bg-opacity-95 shadow-md z-50">
+    // components/Header.js
+
+<header className="fixed top-0 left-0 w-full bg-gray-600 text-white shadow-md z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           
           {/* Logo/Nom */}
           <div className="flex-shrink-0">
-            <h1 className="text-xl font-extrabold text-gray-900">
+            <h1 className="text-xl font-extrabold text-white py-6">
               DevCodeMaster_13
             </h1>
           </div>
@@ -28,7 +30,7 @@ export default function Header() {
               <Link 
                 key={link.name} 
                 href={link.href}
-                className="text-gray-600 hover:text-primary-600 font-medium transition duration-300"
+                className="text-white py-6 hover:text-primary-600 font-medium transition duration-300"
               >
                 {link.name}
               </Link>
