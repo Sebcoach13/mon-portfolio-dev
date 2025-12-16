@@ -1,4 +1,4 @@
-// postcss.config.js (SYNTAXE COMMONJS)
+// postcss.config.js
 
 module.exports = {
   plugins: [
