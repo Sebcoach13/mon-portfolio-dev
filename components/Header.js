@@ -1,6 +1,8 @@
-// components/Header.js
-import React from 'react';
+"use client";
+
+import React, { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const navLinks = [
   { name: 'Accueil', href: '#hero' },
@@ -10,44 +12,77 @@ const navLinks = [
 ];
 
 export default function Header() {
-  return (
-    // components/Header.js
+  const [isOpen, setIsOpen] = useState(false);
 
-<header className="fixed top-0 left-0 w-full bg-gray-600 text-white shadow-md z-50">
+  return (
+    <header className="fixed top-0 left-0 w-full bg-gray-900 text-white shadow-2xl z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-20">
           
-          {/* Logo/Nom */}
-          <div className="flex-shrink-0">
-            <h1 className="text-xl font-extrabold text-white py-6">
-              DevCodeMaster_13
-            </h1>
+          {/* LOGO ET NOM (NOM TOUT EN BLANC) */}
+          <div className="flex items-center gap-3">
+            <Link href="/" className="flex items-center gap-3">
+              <Image 
+                src="/logo.png" 
+                alt="Logo"
+                width={100} 
+                height={100}
+                className="object-contain"
+                priority 
+              />
+              <span className="text-2xl font-black tracking-tighter text-white">
+                DevCodeMaster_13
+              </span>
+            </Link>
           </div>
 
-          {/* Navigation */}
-          <nav className="hidden md:flex space-x-8">
+          {/* NAVIGATION DESKTOP */}
+          <nav className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => (
               <Link 
                 key={link.name} 
                 href={link.href}
-                className="text-white py-6 hover:text-primary-600 font-medium transition duration-300"
+                className="text-lg font-medium hover:text-blue-400 transition"
               >
                 {link.name}
               </Link>
             ))}
+            
+            {/* BOUTON CV (GRANDE TAILLE FORCÉE) */}
+            <a 
+              href="/cv.pdf" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-10 py-3 text-lg font-bold rounded-full text-white bg-blue-600 hover:bg-blue-700 transition-all duration-300 shadow-lg shadow-blue-500/40"
+            >
+              Télécharger CV
+            </a>
           </nav>
-          
-          {/* Bouton CV */}
-          <a 
-            href="/chemin/vers/votre/cv.pdf" 
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hidden md:inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-primary-600 hover:bg-primary-700 transition duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500"
-          >
-            Télécharger CV
-          </a>
+
+          {/* BOUTON MOBILE */}
+          <div className="md:hidden">
+            <button onClick={() => setIsOpen(!isOpen)} className="text-3xl p-2">
+              {isOpen ? "✕" : "☰"}
+            </button>
+          </div>
         </div>
       </div>
+
+      {/* MENU MOBILE */}
+      {isOpen && (
+        <div className="md:hidden bg-gray-900 border-t border-gray-800 p-6">
+          <div className="flex flex-col space-y-6">
+            {navLinks.map((link) => (
+              <Link key={link.name} href={link.href} onClick={() => setIsOpen(false)} className="text-xl">
+                {link.name}
+              </Link>
+            ))}
+            <a href="/cv.pdf" className="text-center py-4 bg-blue-600 rounded-xl font-bold">
+              Télécharger CV
+            </a>
+          </div>
+        </div>
+      )}
     </header>
   );
 }
