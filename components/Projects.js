@@ -1,73 +1,75 @@
-// components/Projects.js 
 import React from "react";
 import { CodeBracketIcon, GlobeAltIcon } from "@heroicons/react/24/solid";
 
-// Définition des projets 
 const projectsData = [
   {
-    title: "Application de Gestion de Stock (Projet de Fin d'Année)",
-    description:
-      "Développement d'une application CRUD complète pour la gestion des produits, des commandes et des fournisseurs. Axé sur la sécurité et la performance des requêtes SQL.",
-    technologies: ["PHP", "Symfony", "MySQL", "Twig", "JavaScript"],
-    githubLink: "URL_GITHUB_PROJET_STOCK",
-    demoLink: "URL_DEMO_ALWAYS_DATA",
+    title: "Application de Gestion de Stock",
+    description: "Développement d'une application CRUD complète pour la gestion des produits, des commandes et des fournisseurs. Axé sur la sécurité et la performance des requêtes SQL.",
+    technologies: ["PHP", "Symfony", "MySQL", "JavaScript"],
+    githubLink: "#",
+    demoLink: "#",
   },
   {
-    title: "Plateforme de Sondage en Temps Réel",
-    description:
-      "Création d'une application pour lancer des sondages instantanés avec mises à jour en temps réel via WebSockets.",
-    technologies: ["React", "Node.js", "MongoDB", "WebSockets"],
-    githubLink: "URL_GITHUB_PROJET_SONDAGE",
-    demoLink: "URL_DEMO_SONDAGE",
+    title: "Plateforme de Sondage Temps Réel",
+    description: "Création d'une application pour lancer des sondages instantanés avec mises à jour en temps réel via WebSockets.",
+    technologies: ["React", "Node.js", "MongoDB", "Socket.io"],
+    githubLink: "#",
+    demoLink: "#",
   },
   {
-    title: "Client Lourd de Base de Données (TP Licence)",
-    description:
-      "Implémentation d'un client lourd pour interagir avec une base de données complexe en utilisant le pattern MVC.",
+    title: "Client Lourd BDD (TP Licence)",
+    description: "Implémentation d'un client lourd pour interagir avec une base de données complexe en utilisant le pattern MVC.",
     technologies: ["C#", ".NET WinForms", "SQL Server"],
-    githubLink: "URL_GITHUB_PROJET_CSHARP",
+    githubLink: "#",
     demoLink: null,
   },
 ];
 
 export default function Projects() {
   return (
-    <section id="projets" className="w-full">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center"> 
+    <section id="projets" className="py-20 bg-gray-50">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8"> 
         
-        {/* Titre (Centrage hérité du conteneur parent) */}
-        <div className="mb-10"> 
-          <h2 className="text-3xl font-extrabold text-gray-900 mb-3">Mes Projets</h2>
-          <p className="text-gray-600">
-            Quelques réalisations représentatives de mon travail.
+        {/* En-tête de section */}
+        <div className="mb-12 text-center"> 
+          <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">Mes Projets</h2>
+          <p className="text-gray-600 max-w-2xl mx-auto">
+            Quelques réalisations représentatives de mon travail technique et académique.
           </p>
         </div>
 
-        {/* Grille des projets (alignement des cartes) */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {/* Grille responsive : 1 col mobile, 2 col tablette, 3 col desktop */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projectsData.map((project, index) => (
             <div
               key={index}
-              className="flex flex-col rounded-lg bg-white p-6 shadow-md border-t-4 border-primary-600 h-[450px] w-full overflow-y-auto"
+              className="flex flex-col rounded-2xl bg-white p-6 shadow-sm hover:shadow-xl transition-shadow duration-300 border border-gray-100"
             >
               <h3 className="text-xl font-bold text-gray-900 mb-3">{project.title}</h3>
-              <p className="text-gray-600 mb-4 flex-grow">{project.description}</p>
-              <div className="flex flex-wrap gap-2 mb-4">
+              
+              <p className="text-gray-600 mb-6 text-sm leading-relaxed flex-grow">
+                {project.description}
+              </p>
+
+              {/* Badges technologies */}
+              <div className="flex flex-wrap gap-2 mb-6">
                 {project.technologies.map((tech) => (
                   <span
                     key={tech}
-                    className="px-3 py-1 text-xs font-medium rounded-full bg-primary-100 text-primary-800"
+                    className="px-3 py-1 text-[10px] uppercase tracking-wider font-bold rounded-md bg-blue-50 text-blue-700"
                   >
                     {tech}
                   </span>
                 ))}
               </div>
-              <div className="mt-auto pt-4 border-t flex gap-4">
+
+              {/* Liens avec alignement automatique en bas */}
+              <div className="pt-4 border-t border-gray-100 flex items-center gap-6">
                 <a
                   href={project.githubLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-1 text-primary-600 hover:text-primary-800 font-medium"
+                  className="flex items-center gap-2 text-sm text-gray-700 hover:text-blue-600 font-semibold transition-colors"
                 >
                   <CodeBracketIcon className="w-5 h-5" />
                   Code
@@ -77,7 +79,7 @@ export default function Projects() {
                     href={project.demoLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-1 text-green-600 hover:text-green-800 font-medium"
+                    className="flex items-center gap-2 text-sm text-blue-600 hover:text-blue-800 font-semibold transition-colors"
                   >
                     <GlobeAltIcon className="w-5 h-5" />
                     Démo

@@ -4,7 +4,7 @@ import React from 'react';
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-800 text-white py-6">
+    <footer className="bg-black text-white py-6">
       
       {/* Conteneur intérieur : limite la largeur et centre le contenu */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"> 
