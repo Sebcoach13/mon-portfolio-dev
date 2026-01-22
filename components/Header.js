@@ -31,7 +31,7 @@ export default function Header() {
                 priority 
               />
               {/* Le -mt-1 ici permet de remonter le texte pour l'aligner au logo */}
-              <span className="text-2xl font-black tracking-tighter hidden sm:block leading-none mt-6">
+              <span className="text-2xl font-black tracking-tighter hidden sm:block leading-none mt-5">
                 DevCodeMaster<span className="text-white">_13</span>
               </span>
             </Link>
@@ -43,7 +43,7 @@ export default function Header() {
               <Link 
                 key={link.name} 
                 href={link.href}
-                className="text-lg font-semibold hover:text-blue-400 transition duration-300 mt-6"
+                className="text-lg font-semibold hover:text-blue-400 transition duration-300 mt-5"
               >
                 {link.name}
               </Link>
